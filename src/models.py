@@ -37,8 +37,8 @@ class Films(Base):
     director = Column(String(250), nullable=False)
     producer = Column(String(250), nullable=False)
     release_date = Column(String(250), nullable=False)
-    favorite_id = Column(Integer, ForeignKey('favorite.id'))
-    favorite = relationship("Favorite")
+    usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    usuario = relationship("Usuario")
 
     def to_dict(self):
         return {}
@@ -57,10 +57,10 @@ class Characters(Base):
     hair_Color = Column(String(250), nullable=False)
     skin_Color = Column(String(250), nullable=False)
     homeworld = Column(String(250), nullable=False)
-    favorite_id = Column(Integer, ForeignKey('favorite.id'))
-    favorite = relationship("favorite")
+    usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    usuario = relationship("Usuario")
     films_id = Column(Integer, ForeignKey('films.id'))
-    film = relationship("films")
+    film = relationship("Films")
 
     def to_dict(self):
         return {}
@@ -77,10 +77,10 @@ class Planets(Base):
     terrain = Column(String(250), nullable=False)
     surface_water =Column(String(250), nullable=False)
     climate = Column(String(250), nullable=False)
-    favorite_id = Column(Integer, ForeignKey('favorite.id'))
-    favorite = relationship("Usuario")
+    usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    usuario = relationship("Usuario")
     films_id = Column(Integer, ForeignKey('films.id'))
-    film = relationship("films")
+    film = relationship("Films")
 
     def to_dict(self):
         return {}
@@ -100,10 +100,10 @@ class Starships(Base):
     hyperdrive_rating = Column(String(250), nullable=False)
     MGLT = Column(Integer, nullable=False)
     Starships = Column(String(250), nullable=False)
-    favorite_id = Column(Integer, ForeignKey('favorite.id'))
-    favorite = relationship("Favorite")
+    usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    usuario = relationship("Usuario")
     films_id = Column(Integer, ForeignKey('films.id'))
-    film = relationship("films")
+    film = relationship("Films")
 
     def to_dict(self):
         return {}
